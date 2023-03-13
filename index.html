@@ -4,40 +4,273 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="RDeveloper" />
-    <meta name="description" content="Portafolio 1.0, tailwindcss." />
-    <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
+    <meta name="author" content="Rdeveloper" />
+    <meta name="description" content="Portafolio 3.0, ahora un poco con tailwindcss y gsap"/>
+    <link rel="icon" type="image/x-icon" href="./img/icon.ico" />
     <title>Rdeveloper</title>
+    <!-- Estilo con TailwindCss -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Animaciones con Gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   </head>
-  <body
-    class="bg-black w-screen h-screen font-sans cursor-default select-none text-white"
-  >
-    <section class="mb-12">
-      <div class="container mx-auto lg:px-32 text-center lg:text-left">
-        <div class="grid lg:grid-cols-2 items-center">
-          <div
-            class="relative block rounded-lg backdrop-blur-sm px-6 py-12 lg:px-12 lg:-mr-14 z-50 duration-500 ease-out hover:scale-105 hover:-translate-x-9 hover:border-white hover:border-b"
-          >
-            <h2 class="text-3xl font-normal mb-4">Quien soy?</h2>
-            <p class="text-slate-100 font-light">
-              Mi nombre es Luis y soy un desarrollador web autodidacta.
-              <br />
-              Desarrollo por placer y deseos de aprender, mejorando mi habilidad
-              y conocimiento en lenguajes desafiantes.
-            </p>
-          </div>
-          <div
-            class="lg:my-10 duration-500 ease-out hover:scale-105 hover:skew-y-2 hover:translate-x-9"
-          >
-            <img
-              src="img/rocko.jpeg"
-              class="lg:w-11/12 rounded-lg hover:border-white hover:border-b"
-              alt="Photo Rdeveloper"
-            />
-          </div>
-        </div>
+  <body class="m-0 p-0 font-mono">
+    <!-- Pantalla de "carga" -->
+    <section class="h-full w-full bg-black fixed z-20 cursor-wait" id="loading">
+      <div class="h-full flex justify-center items-center">
+        <svg width="500" height="500" viewBox="0 0 500 500" fill="#fff" xmlns="http://www.w3.org/2000/svg" id="logo">
+          <path d="M19.6826 249.14L139.39 182.431C141.323 181.376 142.773 180.849 143.74 180.849C145.234 180.849 146.509 181.42 147.563 182.562C148.706 183.617 149.277 184.892 149.277 186.386C149.277 188.583 147.783 190.517 144.795 192.187L42.2266 249.14L144.663 306.093C147.651 307.763 149.146 309.696 149.146 311.894C149.146 313.388 148.574 314.706 147.432 315.849C146.377 316.903 145.103 317.431 143.608 317.431C142.642 317.431 141.191 316.903 139.258 315.849L19.6826 249.14ZM299.702 152.504L210.581 343.402C209.087 346.654 207.153 348.28 204.78 348.28C203.286 348.28 201.968 347.709 200.825 346.566C199.771 345.512 199.243 344.325 199.243 343.007C199.243 341.952 199.683 340.502 200.562 338.656L289.551 147.758C290.518 145.736 291.44 144.418 292.319 143.803C293.198 143.188 294.253 142.88 295.483 142.88C296.978 142.88 298.252 143.451 299.307 144.594C300.449 145.648 301.021 146.835 301.021 148.153C301.021 149.12 300.581 150.57 299.702 152.504ZM480.186 249.14L360.479 315.849C358.545 316.903 357.095 317.431 356.128 317.431C354.634 317.431 353.315 316.903 352.173 315.849C351.118 314.706 350.591 313.388 350.591 311.894C350.591 309.696 352.085 307.763 355.073 306.093L457.642 249.14L355.205 192.187C352.217 190.517 350.723 188.583 350.723 186.386C350.723 184.892 351.25 183.617 352.305 182.562C353.447 181.42 354.766 180.849 356.26 180.849C357.227 180.849 358.677 181.376 360.61 182.431L480.186 249.14Z"/>
+        </svg>
       </div>
     </section>
+    <!-- Barra de progreso -->
+    <progress max="100" value="0"></progress>
+    <!-- Presentacion inicial -->
+    <div class="bg-black text-white h-screen w-screen">
+      <div class="px-2 lg:px-20 h-full w-full">
+        <div class="flex flex-col h-full items-center justify-center">
+          <h1 class="text-2xl w-full">Rdeveloper</h1>
+          <p id="txtDescription">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam dicta cumque omnis corporis aspernatur rem dolore exercitationem commodi quia deleniti, dolorum voluptas dolores molestiae corrupti incidunt ex asperiores unde fugiat.</p>  
+        </div>
+      </div>
+    </div>
+    <!-- contenedor de paneles -->
+    <div class="container">
+      <!-- Habilidades/Conocimientos -->
+      <section class="panel red bg-red-500 text-white h-screen w-screen">
+        <div class="w-screen">
+          <h1 class="text-2xl" id="subtitle">Lorem ipsum dolor sit.</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore quibusdam reprehenderit ullam odit nobis nam consequatur reiciendis, ratione et nisi sint magni similique accusamus quidem eligendi unde rem quis incidunt?</p>
+        </div>
+      </section>
+      <!-- Experimentos -->
+      <section class="panel bg-neutral-500 text-white h-screen w-screen">
+        <div class="w-screen">
+          <h1 class="text-2xl">Lorem ipsum dolor sit.</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, aliquid! Facere amet repellendus perspiciatis doloribus adipisci nesciunt neque in temporibus, dolorem consequatur aspernatur aut officiis, voluptatum dolor repudiandae accusamus a.</p>
+        </div>
+      </section>
+      <!-- Final -->
+      <section class="panel bg-black text-white h-screen w-screen" id="border">
+        <div class="w-screen h-screen bg-black">
+          <h1 class="text-2xl">Lorem ipsum dolor sit.</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea deleniti, magnam, repudiandae aperiam soluta enim error aliquam perspiciatis nostrum autem eum porro quibusdam. Vel voluptates magni animi doloremque. Minus, assumenda.</p>
+        </div>
+      </section>
+      <section class="panel text-white bg-black h-auto w-screen" id="border">
+        <div class="flex flex-col pt-4 justify-center bg-black">
+          <!-- Redes sociales -->
+          <div class="flex justify-center">
+            <!-- Github -->
+            <a href="https://github.com/ROCKOdeveloper" target="_blank" class="hover:-translate-y-2 hover:scale-125 transition duration-500 ease-linear m-2" id="github">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="white" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+            <!-- Stack Overlow -->
+            <a href="https://stackoverflow.com/users/21374231/rdeveloper" target="_blank" class="hover:-translate-y-2 hover:scale-125 transition duration-500 ease-linear m-2" id="StackOverflow">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="white" viewBox="0 0 250 292">
+                <path d="M213.467 265.533V187.435H239.5V291.565H0V187.435H26.0326V265.533H213.467Z" />
+                <path d="M55.3844 180.126L184.617 206.725L190.084 181.135L60.8512 154.536L55.3844 180.126ZM72.4813 119.522L192.134 174.418L203.054 150.833L83.4215 95.6178L72.4813 119.522ZM105.64 61.5997L207.167 144.761L223.919 124.898L122.392 41.7368L105.64 61.5997ZM171.815 0L150.084 15.4894L228.716 119.861L249.913 104.13L171.815 0ZM52.0652 239.5H184.832V213.467H52.0652V239.5Z"/>                  
+              </svg>                             
+            </a>
+            <!-- Twitter -->
+            <a href="https://twitter.com/Rockodeveloper" target="_blank" class="hover:-translate-y-2 hover:scale-125 transition duration-500 ease-linear m-2" id="twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="white" viewBox="0 0 24 24">
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/rockodeveloper/" target="_blank" class="hover:-translate-y-2 hover:scale-125 transition duration-500 ease-linear m-2" id="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="white" viewBox="0 0 24 24">
+                <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+              </svg>
+            </a>
+          </div>
+          <!-- Firma -->
+          <div class="pb-6 text-xs text-center bg-black hover:scale-125 duration-1000 ease-linear delay-500">
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="cursor-help">Desarrollado y diseñado por Rdeveloper</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </body>
+  <script>
+    /* Introduccion a Gsap */
+    gsap.registerPlugin(ScrollTrigger);
+    /* Animacion para la pantalla de "carga"  */
+    gsap.fromTo("#loading", {
+      opacity:1
+    }, {
+      opacity:0, 
+      display: "none",
+      duration:0.5, 
+      delay:2
+    });
+    /* Animacion para la barra de progreso */
+    gsap.to("progress", {
+      value: 100,
+      ease: 'none',
+      scrollTrigger: {
+        scrub: 2
+      }
+    });
+    /* Animacion para el texto de presentacion */
+    gsap.from("#txtDescription", {
+      duration: 3, 
+      text: "",
+      delay: 2,
+    });
+
+    /* Animacion para definir */
+    gsap.from("#subtitle",{
+      scrollTrigger: {
+        trigger: "#subtitle",
+        start: "center 80%",
+        end: "bottom 20%",
+        scrub: 3,
+        toggleActions: "play pause reverse resume"
+      },
+      x:-400,
+      duration: 5
+    });
+    /* Animacion para los paneles */
+    gsap.utils.toArray(".panel").forEach((panel, i) => {
+      ScrollTrigger.create({
+        trigger: panel,
+        start: "top top ", 
+        pin: true, 
+        pinSpacing: false,
+        scrub: 3,
+      });
+    });
+    ScrollTrigger.create({
+      snap: 1 / 4
+    });
+  </script>
+  <style>
+    /* Estilos basicos */
+    html{
+      background-color: #000000;
+    } 
+    body {
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar{
+      display: none;
+    }
+    /* Estilo del logo */
+    #logo{
+      stroke: #ffffff;
+      stroke-width: 1;
+      fill-opacity: 0;
+      stroke-dasharray: 4500;
+      animation: typing 16s ease;
+    }
+    @keyframes typing {
+      0% {
+        stroke-dashoffset: 4500;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+    /* Estilos de la barra de progreso */
+    progress {
+      z-index: 10;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      border: transparent;
+      background: transparent;
+      appearance: none;
+    }
+    progress::-webkit-progress-bar {
+      background: transparent;
+    }
+    progress::-webkit-progress-value {
+      background-color: #ffffff;
+    }
+    /* Estilos de los paneles */
+    #border {
+      z-index: 1;
+      border: none;
+      position: relative;
+    }
+    #border::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient( 90deg, 
+          #db38b5,#01b3e3,#25ce7b,#fdc741,#ff6b01, #fc4236,
+          #fc4236, #ff6b01, #fdc741, #25ce7b, #01b3e3, #db38b5
+      );
+      background-size: 600%;
+      filter: blur(15px);
+      animation: glowing 25s linear infinite;
+    }
+    @keyframes glowing {
+      0% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 400% 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+    /* Estilos de las redes */
+    #github {
+      border-radius: 5px;
+      padding: 5px;
+    }
+    :hover#github {
+      display: inline-block;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px;
+      background: #6f42c1;
+    }
+    #StackOverflow {
+      border-radius: 5px;
+      padding: 5px;
+    }
+    :hover#StackOverflow {
+      display: inline-block;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px;
+      background: #F48024;
+    }
+    #twitter {
+      border-radius: 5px;
+      padding: 5px;
+    }
+    :hover#twitter {
+      display: inline-block;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px;
+      background: #00ACEE;
+    }
+    #LinkedIn {
+      border-radius: 5px;
+      padding: 5px;
+    }
+    :hover#LinkedIn {
+      display: inline-block;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px;
+      background: #0A66C2;
+    }
+  </style>
 </html>
