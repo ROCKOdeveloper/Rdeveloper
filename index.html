@@ -39,7 +39,7 @@
     <!-- Barra de progreso -->
     <progress max="100" value="0"></progress>
     <!-- Presentacion inicial -->
-    <div class="panel bg-black h-screen w-screen" id="panel1">
+    <div class="panel h-screen w-screen" id="panel1">
       <div class="px-2 lg:px-20 h-full w-full">
         <div
           class="text-white flex flex-col h-full items-center justify-center"
@@ -71,8 +71,24 @@
     <!-- contenedor de paneles -->
     <div class="container">
       <!-- Habilidades/Conocimientos -->
-      <section class="panel text-white bg-black h-screen w-screen" id="panel2">
+      <section class="panel text-white h-screen w-screen" id="panel2">
         <div class="px-2 lg:px-20 h-full w-full">
+          <div class="absolute -z-10 h-full w-full">
+            <div id="box1">
+              <svg
+                width="500"
+                height="500"
+                viewBox="0 0 500 500"
+                fill="#fff"
+                xmlns="http://www.w3.org/2000/svg"
+                id="logo"
+              >
+                <path
+                  d="M19.6826 249.14L139.39 182.431C141.323 181.376 142.773 180.849 143.74 180.849C145.234 180.849 146.509 181.42 147.563 182.562C148.706 183.617 149.277 184.892 149.277 186.386C149.277 188.583 147.783 190.517 144.795 192.187L42.2266 249.14L144.663 306.093C147.651 307.763 149.146 309.696 149.146 311.894C149.146 313.388 148.574 314.706 147.432 315.849C146.377 316.903 145.103 317.431 143.608 317.431C142.642 317.431 141.191 316.903 139.258 315.849L19.6826 249.14ZM299.702 152.504L210.581 343.402C209.087 346.654 207.153 348.28 204.78 348.28C203.286 348.28 201.968 347.709 200.825 346.566C199.771 345.512 199.243 344.325 199.243 343.007C199.243 341.952 199.683 340.502 200.562 338.656L289.551 147.758C290.518 145.736 291.44 144.418 292.319 143.803C293.198 143.188 294.253 142.88 295.483 142.88C296.978 142.88 298.252 143.451 299.307 144.594C300.449 145.648 301.021 146.835 301.021 148.153C301.021 149.12 300.581 150.57 299.702 152.504ZM480.186 249.14L360.479 315.849C358.545 316.903 357.095 317.431 356.128 317.431C354.634 317.431 353.315 316.903 352.173 315.849C351.118 314.706 350.591 313.388 350.591 311.894C350.591 309.696 352.085 307.763 355.073 306.093L457.642 249.14L355.205 192.187C352.217 190.517 350.723 188.583 350.723 186.386C350.723 184.892 351.25 183.617 352.305 182.562C353.447 181.42 354.766 180.849 356.26 180.849C357.227 180.849 358.677 181.376 360.61 182.431L480.186 249.14Z"
+                />
+              </svg>
+            </div>
+          </div>
           <div
             class="text-white flex flex-col h-full items-center justify-center"
           >
@@ -99,7 +115,7 @@
         </div>
       </section>
       <!-- Experimentos -->
-      <section class="panel text-white bg-black h-screen w-screen" id="panel3">
+      <section class="panel text-white h-screen w-screen" id="panel3">
         <div class="px-2 lg:px-20 w-full h-full">
           <div class="flex flex-col h-full items-center justify-center">
             <p class="flex">
@@ -218,18 +234,15 @@
         </div>
       </section>
       <!-- Final -->
-      <section class="panel text-white bg-black h-screen w-screen" id="panel4">
-        <div class="bg-black h-full w-full">
+      <section class="panel text-white h-screen w-screen" id="panel4">
+        <div class="h-full w-full">
           <div
             class="px-2 lg:px-20 flex w-full h-full items-center justify-center text-center text-white"
           >
-            <p class="text-2xl w-full">
+            <p class="text-xl w-full">
               Me considero un comunicador efectivo y un colaborador
               comprometido, siempre buscando aprender y mejorar.
-              <a
-                class="absolute inset-x-0 top-0 mt-24"
-                href="#"
-              >
+              <a class="absolute inset-x-0 top-0 mt-6 lg:mt-24" href="#">
                 <button id="button">
                   <span>
                     <svg
@@ -391,7 +404,7 @@
       },
       {
         opacity: 1,
-        duration: 5,
+        duration: 2,
         delay: 4,
       }
     );
@@ -401,16 +414,18 @@
       text: "",
       delay: 2,
     });
-    /* Animacion para definir */
-    gsap.from("#subtitle", {
+    /* Animacion para las cajas que se juntan en el panel 3 */
+    gsap.from("#box1", {
       scrollTrigger: {
-        trigger: "#subtitle",
+        trigger: "#box1",
         start: "center 80%",
         end: "bottom 20%",
+        markers: true,
         scrub: 3,
         toggleActions: "play pause reverse resume",
       },
-      x: -400,
+      x: -500,
+      y: 300,
       duration: 5,
     });
     /* Animacion para los paneles */
@@ -548,8 +563,12 @@
         background-position: 0 0;
       }
     }
+    /* Estilos de los panel */
+    #panel1, #panel2, #panel3, #panel4 {
+      background-color: #000000;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%233B3B3B' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%2359585A'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+    }
     /* Estilos de slider */
-
     .slider {
       background: transparent;
       overflow: hidden;
