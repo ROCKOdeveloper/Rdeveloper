@@ -39,7 +39,7 @@
     <!-- Barra de progreso -->
     <progress max="100" value="0"></progress>
     <!-- Presentacion inicial -->
-    <div class="panel h-screen w-screen" id="panel1">
+    <div class="h-screen w-screen">
       <div class="px-2 lg:px-20 h-full w-full">
         <div
           class="text-white flex flex-col h-full items-center justify-center"
@@ -51,27 +51,13 @@
             mejorar y mantenerme actualizado en las últimas tecnologías y
             prácticas de programación, para hacer mi trabajo más eficiente.
           </p>
-          <a class="absolute bottom-0 mb-24" href="#panel2">
-            <button id="button">
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="48"
-                  width="48"
-                  fill="white"
-                >
-                  <path d="m24 30-10-9.95h20Z" />
-                </svg>
-              </span>
-            </button>
-          </a>
         </div>
       </div>
     </div>
     <!-- contenedor de paneles -->
     <div class="container">
       <!-- Panel 2 -->
-      <section class="panel text-white h-screen w-screen" id="panel2">
+      <section class="text-white h-screen w-screen">
         <div class="px-2 lg:px-20 h-full w-full">
           <div
             class="absolute -z-10 h-full w-full overflow-hidden grid grid-cols-3 gap-4 auto-rows-auto place-items-center"
@@ -510,25 +496,11 @@
               caracteriza para enfrentar cualquier desafío, lo que me permite
               resolver problemas y encontrar soluciones creativas.
             </p>
-            <a class="absolute bottom-0 mb-24" href="#panel3">
-              <button id="button">
-                <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="48"
-                    width="48"
-                    fill="white"
-                  >
-                    <path d="m24 30-10-9.95h20Z" />
-                  </svg>
-                </span>
-              </button>
-            </a>
           </div>
         </div>
       </section>
       <!-- Panel 3 -->
-      <section class="panel text-white h-screen w-screen" id="panel3">
+      <section class="text-white h-screen w-screen">
         <div class="px-2 lg:px-20 w-full h-full">
           <div class="flex flex-col h-full items-center justify-center">
             <p class="flex">
@@ -1438,25 +1410,11 @@
                 </div>
               </div>
             </div>
-            <a class="absolute bottom-0 mb-24" href="#panel4">
-              <button id="button">
-                <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="48"
-                    width="48"
-                    fill="white"
-                  >
-                    <path d="m24 30-10-9.95h20Z" />
-                  </svg>
-                </span>
-              </button>
-            </a>
           </div>
         </div>
       </section>
       <!-- Panel 4 -->
-      <section class="panel text-white h-screen w-screen" id="panel4">
+      <section class="text-white h-screen w-screen">
         <div class="h-full w-full">
           <div
             class="px-2 lg:px-20 flex w-full h-full items-center justify-center text-center text-white"
@@ -1464,43 +1422,12 @@
             <p class="text-xl w-full">
               Me considero un comunicador efectivo y un colaborador
               comprometido, siempre buscando aprender y mejorar.
-              <a class="absolute inset-x-0 top-0 mt-24" href="#">
-                <button id="button">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="white"
-                    >
-                      <path
-                        d="M13.5 2c-5.621 0-10.211 4.443-10.475 10h-3.025l5 6.625 5-6.625h-2.975c.257-3.351 3.06-6 6.475-6 3.584 0 6.5 2.916 6.5 6.5s-2.916 6.5-6.5 6.5c-1.863 0-3.542-.793-4.728-2.053l-2.427 3.216c1.877 1.754 4.389 2.837 7.155 2.837 5.79 0 10.5-4.71 10.5-10.5s-4.71-10.5-10.5-10.5z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </a>
             </p>
-            <a class="absolute bottom-0 mb-24" href="#border">
-              <button id="button">
-                <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="48"
-                    width="48"
-                    fill="white"
-                  >
-                    <path d="m24 30-10-9.95h20Z" />
-                  </svg>
-                </span>
-              </button>
-            </a>
           </div>
         </div>
       </section>
       <!-- Panel 5 -->
-      <section class="panel text-white bg-black h-auto w-screen" id="border">
+      <section class="text-white bg-black h-auto w-screen" id="border">
         <div class="flex flex-col pt-4 justify-center bg-black">
           <!-- Redes sociales -->
           <div class="flex justify-center">
@@ -1782,26 +1709,17 @@
       y: -300,
       duration: 5,
     });
-    /* Animacion para los paneles */
-    gsap.utils.toArray(".panel").forEach((panel, i) => {
-      ScrollTrigger.create({
-        trigger: panel,
-        start: "top top",
-        pin: true,
-        pinSpacing: false,
-        scrub: 5,
-      });
-    });
   </script>
   <style>
     /* Estilos basicos */
     html {
       background-color: #000000;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%233B3B3B' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%2359585A'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
       scroll-behavior: smooth;
     }
     body {
       overflow-x: hidden;
-      overflow-y: hidden;
     }
     ::-webkit-scrollbar {
       width: 0;
@@ -1874,7 +1792,7 @@
     button span:not(hover) {
       transition: all 1s;
     }
-    /* Estilos de los paneles */
+    /* Estilos de los footer */
     #border {
       z-index: 1;
       border: none;
