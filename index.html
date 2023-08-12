@@ -25,37 +25,43 @@
         <div class="w-full md:w-1/5 md:mr-5">
           <img src="./img/rockoperfil.jpg" alt="Photo" class="rounded-2xl w-full"/>
         </div>
-        <div class="w-full md:w-4/5 mt-5 md:m-0 flex flex-col md:grid grid-cols-2 content-center">
+        <div class="w-full md:w-4/5 mt-5 md:m-0 flex flex-col justify-center">
           <h1 class="text-2xl font-bold flex flex-col">Rdeveloper
-            <span class="text-xs font-normal text-neutral-500">Desarrollador autodidacta</span>
+            <div class="flex justify-center md:justify-start">
+              <span id="typing" class="text-xs font-normal text-neutral-500"></span>
+            </div>
           </h1>
-          <a href="https://github.com/ROCKOdeveloper" target="_blank" rel="noopener noreferrer" class="w-fit hidden md:block justify-self-center my-auto text-neutral-400 hover:underline hover:decoration-wavy decoration-pink-400">@Rdeveloper</a>
-          <p class="col-span-2 mt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores omnis sunt natus facilis eligendi consectetur quaerat rem obcaecati fugit, molestiae quas ea! Iure deserunt praesentium possimus vel quos sint fugit!</p>
+          <p class="col-span-2 mt-5">Soy un desarrollador autodidacta con una inconmensurable pasión por el aprendizaje en el mundo del desarrollo de software.</p>
         </div>
       </section>
       <hr class="mt-5 border-pink-400">
       <!-- Content -->
       <section class="py-5 flex flex-col md:flex-row">
         <!-- project -->
-        <div class="p-5 mr-5 w-full md:w-1/3 rounded-2xl bg-neutral-900">
+        <div class="p-5 mr-5 w-full md:w-1/3  rounded-2xl bg-neutral-900 ">
           <h2 class="text-xl font-semibold mb-3 border-2 border-transparent border-b-pink-400">Proyectos</h2>
-          <div>
-            <div class="flex flex-col md:flex-row items-center">
-              <img src="./img/rockoperfil.jpg" alt="" class="rounded-full w-14 m-0 md:mr-5">
+          <div class="overflow-y-auto h-96">
+            
+            <div class="flex flex-col lg:flex-row items-center p-3 mb-3 rounded-2xl border-0 hover:border-b-4 border-pink-400 duration-300 ease-in-out hover:-translate-y-1">
+              <img src="./img/rockoperfil.jpg" alt="" class="rounded-2xl w-14 mb-3 lg:mr-5">
               <div class="flex flex-col">
                 <span class="text-xs text-neutral-500">2033 - hasta ahora</span>
                 <p class="text-base font-bold">Nombre del proyecto</p>
                 <p class="text-sm mt-1">Descripción del proyecto</p>
               </div>
             </div>
+
           </div>
         </div>
         <!-- Experiment -->
         <div class="p-5 mt-5 md:mt-0 w-full md:w-2/3 rounded-2xl bg-neutral-900">
           <h3 class="text-xl font-semibold mb-3 border-2 border-transparent border-b-pink-400">Experimentos</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3">
-            <div class="flex flex-col items-start border border-pink-400 p-3 rounded-2xl mt-9 w-full">
-              <img src="./img/rockoperfil.jpg" alt="" class="rounded-lg w-full h-14 mb-2 -mt-10">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <div class="flex flex-col items-start border border-pink-400 p-3 rounded-2xl mt-9 w-full hover:scale-105 backdrop-blur-sm duration-300 ease-in-out">
+              <div class="mb-2 -mt-10 mx-auto md:mx-0">
+                <img src="./img/rockoperfil.jpg" alt="" class="rounded-lg w-full h-14">
+              </div>
               <div class="flex flex-col w-full">
                 <span class="text-xs text-neutral-500">#html</span>
                 <p class="text-base font-bold">Nombre del experimento</p>
@@ -70,13 +76,14 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
       <!-- Blog -->
-      <section class="py-5 flex flex-col-reverse md:flex-row rounded-2xl bg-neutral-900">
+      <section class="h-auto py-5 flex flex-col-reverse md:flex-row rounded-2xl bg-neutral-900">
         <div class=" px-5 w-full md:w-2/3 grid grid-cols-1 content-center">
-          <span class="text-xs mt-5 md:m-0 leading-none">Blog</span>
+          <span class="text-xs mt-5 md:m-0 leading-none text-neutral-500">Blog</span>
           <h4 class="text-base font-bold">Aprende más de mí</h4>
           <p class="text-sm mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quam quasi, voluptas eligendi quia molestias? Possimus recusandae accusantium dolores atque quasi expedita incidunt velit deserunt quod! Ipsum facere voluptate itaque iste eius hic.</p>
           <a href="http://google.com" target="_blank" rel="noopener noreferrer" class="justify-self-center md:justify-self-end hover:scale-105 duration-500	ease-out delay-100">
@@ -84,7 +91,7 @@
           </a>
         </div>
         <div class="w-full md:w-1/3">
-          <img src="./img/rockoperfil.jpg" alt="Photo two" class="md:rounded-l-2xl w-auto h-auto">
+          <img src="./img/rockoperfil.jpg" alt="Photo two" class="md:rounded-l-2xl w-full h-48">
         </div>
       </section>
     </main>
@@ -119,8 +126,10 @@
           </a>
         </div>
         <!-- Creates by -->
-        <div class="pb-5 cursor-default">Desarrollado y diseñado por 
-          <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank" class="cursor-help hover:underline hover:decoration-wavy decoration-pink-400">Rdeveloper</a>
+        <div class="pb-5 cursor-default">
+          <p>Desarrollado y diseñado por
+            <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank" class="cursor-help hover:underline hover:decoration-wavy decoration-pink-400">Rdeveloper</a>
+          </p>
         </div>
       </div>
     </footer>
@@ -133,9 +142,42 @@
       value: 100,
       ease: "none",
       scrollTrigger: {
-        scrub: 2,
+        scrub: 1,
       },
     });
+    /* Animacion de typing */
+    'use strict';
+    const type = document.querySelector('#typing');
+    let listTexts = ['Luis Rodriguez','Web developer', 'Autodidacta', 'Papá', 'Freelancer', 'Taekwondista', 'Curioso'];
+    let index = -1;
+    let current = 0;
+    function typeTextFunc() {
+      if (current === listTexts.length) {
+        current = 0;
+      }
+      let typeText = setInterval(() => {
+        if (index == listTexts[current].length - 1) {
+          clearInterval(typeText);
+          clearTextFunc();
+        } else {
+          index++;
+          type.textContent += listTexts[current][index];
+        }
+      }, 200);
+    };
+    function clearTextFunc() {
+      let clearText = setInterval(() => {
+        if (type.textContent.length == 0) {
+          clearInterval(clearText);
+          index = -1;
+          current++
+          typeTextFunc();
+        } else {
+          type.textContent = type.textContent.slice(0, -1)
+        }
+      }, 50);
+    };
+    typeTextFunc();
   </script>
   <style>
     /* Estilos basicos */
@@ -167,6 +209,33 @@
     }
     progress::-webkit-progress-value {
       background-color: #f472b6;
+    }
+    /* Estilo de efecto de typing */
+    #typing {
+      height: 20px;
+      position: relative;
+    }
+    #typing::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: -3px;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background-color: #ffffff7d;
+      animation: type .5s infinite;
+    }
+    @keyframes type {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: .5;
+        }
+        100% {
+            opacity: 0;
+        }
     }
     /* Estilos de las redes */
     #github {
