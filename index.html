@@ -84,7 +84,7 @@
         </div>
       </section>
       <!-- Blog -->
-      <section class="h-auto py-5 flex flex-col-reverse md:flex-row rounded-2xl bg-neutral-900">
+      <section id="blog" class="h-auto py-5 flex flex-col-reverse md:flex-row rounded-2xl bg-neutral-900">
         <div class=" px-5 w-full md:w-2/3 grid grid-cols-1 content-center">
           <span class="text-xs mt-5 md:m-0 leading-none text-neutral-500">Blog</span>
           <h4 class="text-base font-bold">Aprende más de mí</h4>
@@ -257,10 +257,10 @@
     gsap.from("#project", {
     scrollTrigger: {
       trigger: "#project",
-      start: "-600px 20%",
-      end: "bottom 20%",
+      start: "-600px 35%",
+      end: "-600px top",
       toggleActions: "play complete none none",
-      markers: true,
+      markers: false,
       id: "project"
     },
       y: "500px",
@@ -271,10 +271,10 @@
     gsap.from("#experiment", {
       scrollTrigger: {
         trigger: "#experiment",
-        start: "-600px 20%",
-        end: "bottom 20%",
+        start: "-600px 30%",
+        end: "-600px top",
         toggleActions: "play complete none none",
-        markers: true,
+        markers: false,
         id: "experiment"
       },
       y: "500px",
@@ -282,6 +282,23 @@
       ease: "expo.out",
       delay: 0.5,
     })
+    /* Box blog */
+    gsap.fromTo("#blog", {
+      autoAlpha: 0,
+      duration: 2,
+      ease: "expo.out",
+    },
+    {
+      autoAlpha: 1,
+      scrollTrigger: {
+        trigger: "#blog",
+        start: "-100px 70%",
+        end: "-100px 60%",
+        toggleActions: "play complete none none",
+        markers: false,
+        id: "blog box" 
+      }
+    });
     /* Text blog */
     gsap.to("#TextBlog", {
       scrollTrigger: {
