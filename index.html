@@ -55,7 +55,7 @@
           </div>
         </div>
         <!-- Experiment -->
-        <div id="experiment" class="p-5 mt-10 md:mt-3 w-full md:w-2/3 rounded-2xl bg-neutral-900 static">
+        <div id="experiment" class="p-5 mt-10 md:mt-3 w-full md:w-2/3 rounded-2xl bg-neutral-900">
           <h3 class="text-xl font-semibold mb-3 -mt-9 pb-3 border-2 border-transparent border-b-pink-400">Experimentos</h3>
           <!-- caja Experiment -->
           <div class="overflow-y-auto h-96 w-full grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -271,10 +271,10 @@
     gsap.from("#experiment", {
       scrollTrigger: {
         trigger: "#experiment",
-        start: "top 30%",
+        start: "-40px 30%",
         end: "top top",
         toggleActions: "play complete none none",
-        markers: true,
+        markers: false,
         id: "experiment"
       },
       x: "1000px",
