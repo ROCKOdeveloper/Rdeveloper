@@ -21,6 +21,8 @@
   <body class="font-sans text-neutral-300 text-center md:text-left"> 
     <!-- Progress -->
     <progress max="100" value="0"></progress>
+    <!-- Custom mouse -->
+    <div id="cursor"></div>
     <!-- Main -->
     <main class="p-5">
       <!-- Profile -->
@@ -49,6 +51,7 @@
                 <span class="text-xs text-neutral-500">2033 - hasta ahora</span>
                 <p class="text-base font-bold">Nombre del proyecto</p>
                 <p class="text-sm mt-1">Descripción del proyecto</p>
+                <p class="text-sm text-neutral-500 font-semibold justify-end">Estado del proyecto</p>
               </div>
             </div>
 
@@ -70,10 +73,10 @@
                 <p class="text-base font-bold">Nombre del experimento</p>
                 <p class="text-sm mt-1">Descripción del experimento</p>
                 <div class="flex flex-row justify-end w-full">
-                  <a href="http://google.com" target="_blank" rel="noopener noreferrer" class="hover:scale-105 duration-500	ease-out delay-100">
+                  <a href="http://google.com" target="_blank" rel="noopener noreferrer" class="hover:scale-105 hover:-skew-y-3 duration-500	ease-out delay-100">
                     <button class="px-2 py-1 mt-2 w-fit text-xs text-pink-400 hover:text-white border border-pink-400 hover:bonder-transparent hover:bg-pink-400 rounded-lg transition duration-100 ease-out delay-75">Demo</button>
                   </a>
-                  <a href="http://google.com" target="_blank" rel="noopener noreferrer" class="hover:scale-105 duration-500	ease-out delay-100">
+                  <a href="http://google.com" target="_blank" rel="noopener noreferrer" class="hover:scale-105 hover:skew-y-3 duration-500	ease-out delay-100">
                     <button class="px-2 py-1 ml-2 mt-2 w-fit text-xs text-pink-400 hover:text-white border border-pink-400 hover:bonder-transparent hover:bg-pink-400 rounded-lg transition duration-100 ease-out delay-75">Code</button>
                   </a>
                 </div>
@@ -99,7 +102,7 @@
       </section>
     </main>
     <footer class="text-white text-center text-xs">
-      <div class="flex flex-col justify-center bg-black">
+      <div class="flex flex-col justify-center">
         <!-- Social Networks -->
         <div class="flex justify-center">
           <!-- Github -->
@@ -129,7 +132,7 @@
           </a>
         </div>
         <!-- Creates by -->
-        <div class="pb-5 cursor-default">
+        <div class="pb-5">
           <p>Desarrollado y diseñado por
             <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank" class="cursor-help hover:underline hover:decoration-wavy decoration-pink-400">Rdeveloper</a>
           </p>
@@ -146,9 +149,17 @@
     }
     body {
       overflow-x: hidden;
+      cursor: none;
+
     }
     ::-webkit-scrollbar {
       width: 0;
+    }
+    a {
+      cursor: none;
+    }
+    button {
+      cursor: none;
     }
     /* Bar progress */
     progress {
@@ -167,6 +178,20 @@
     }
     progress::-webkit-progress-value {
       background-color: #f472b6;
+    }
+    /* Custom cursor */
+    #cursor {
+      width: 10px;
+      height: 10px;
+      z-index: 999;
+      pointer-events: none;
+      transition: none;
+      position: fixed;
+      background-color: #f472b6;
+      border-radius: 40%;
+      left: -5px;
+      top: -5px;
+      transform: translate(var(--mouse-x), var(--mouse-y));
     }
     /* Efect typing */
     #typing {
@@ -271,16 +296,15 @@
     gsap.from("#experiment", {
       scrollTrigger: {
         trigger: "#experiment",
-        start: "-40px 30%",
-        end: "top top",
+        start: "-600px 30%",
+        end: "-600px top",
         toggleActions: "play complete none none",
         markers: false,
         id: "experiment"
       },
-      x: "1000px",
-      duration: 3,
-      ease: "bounce",
-      delay: 0,
+      y: "500px",
+      duration: 2,
+      ease: "bexpo.out",
     })
     /* Box blog */
     gsap.fromTo("#blog", {
@@ -314,6 +338,12 @@
       text: "Soy un texto muy sexy de verdad un texto muy sexy",
       ease: "expo.out",
     })
+    /* Custom cursor */
+    let root = document.documentElement;
+    root.addEventListener("mousemove", (e) => {
+      root.style.setProperty("--mouse-x", e.clientX + "px");
+      root.style.setProperty("--mouse-y", e.clientY + "px");
+    });
     /* typing */
     'use strict';
     const type = document.querySelector('#typing');
