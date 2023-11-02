@@ -1,0 +1,156 @@
+/* Basic */
+html {
+  background-color: #000000;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+  cursor: none;
+}
+
+button:hover,
+button:focus,
+button:active {
+  cursor: none;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Bar progress */
+progress {
+  z-index: 10;
+  position: fixed;
+  top: 4px;
+  left: 4px;
+  width: 99.5%;
+  height: 4px;
+  border: transparent;
+  border-radius: 100%;
+  background: transparent;
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background: transparent;
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #f472b6;
+  border-radius: 10px;
+}
+
+/* Custom cursor */
+#cursor {
+  width: 10px;
+  height: 10px;
+  z-index: 999;
+  pointer-events: none;
+  transition: none;
+  position: fixed;
+  background-color: #f472b6;
+  filter: blur(1px);
+  opacity: 0.9;
+  border-radius: 100%;
+  box-shadow:
+    0px 0px 10px #f472b52e,
+    0px 0px 15px #f472b58b,
+    0px 0px 20px #f472b5c5;
+  left: -5px;
+  top: -5px;
+  transform: translate(var(--mouse-x), var(--mouse-y)) translateZ(0);
+}
+
+/* Efect typing */
+#typing {
+  height: 1rem;
+  position: relative;
+}
+
+#typing::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: -3px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: #ffffff7d;
+  animation: type .5s infinite;
+}
+
+@keyframes type {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Network */
+#github {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+:hover#github {
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  background: #6f42c1;
+}
+
+#StackOverflow {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+:hover#StackOverflow {
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  background: #f48024;
+}
+
+#twitter {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+:hover#twitter {
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  background: #00acee;
+}
+
+#LinkedIn {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+:hover#LinkedIn {
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  background: #0a66c2;
+}
