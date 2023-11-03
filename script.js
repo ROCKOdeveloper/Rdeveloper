@@ -19,6 +19,7 @@ gsap.from("#project", {
     toggleActions: "play resume reverse none",
     markers: false,
     id: "project",
+    scrub: 1,
   },
   y: "500px",
   duration: 2.5,
@@ -34,6 +35,7 @@ gsap.from("#experiment", {
     toggleActions: "play resume reverse none",
     markers: false,
     id: "experiment",
+    scrub: 1,
   },
   y: "500px",
   duration: 2,
@@ -57,6 +59,7 @@ gsap.fromTo(
       toggleActions: "play resume reverse none",
       markers: false,
       id: "blog box",
+      scrub: 1,
     },
   }
 );
@@ -78,19 +81,11 @@ gsap.to("#TextBlog", {
 });
 
 // Custom cursor
-const isTouchDevice = () =>
-  "ontouchstart" in window ||
-  navigator.maxTouchPoints > 0 ||
-  navigator.msMaxTouchPoints > 0;
-const isTouch = isTouchDevice();
-
-if (!isTouch) {
-  let root = document.documentElement;
-  root.addEventListener("mousemove", (e) => {
-    root.style.setProperty("--mouse-x", e.clientX + "px");
-    root.style.setProperty("--mouse-y", e.clientY + "px");
-  });
-}
+let root = document.documentElement;
+root.addEventListener("mousemove", (e) => {
+  root.style.setProperty("--mouse-x", e.clientX + "px");
+  root.style.setProperty("--mouse-y", e.clientY + "px");
+});
 
 // typing
 ("use strict");
