@@ -25,6 +25,11 @@ button:active {
   width: 0;
 }
 
+::selection {
+  background-color: #f472b6;
+  color: #ffffff;
+}
+
 /* Bar progress */
 progress {
   z-index: 10;
