@@ -36,7 +36,7 @@ progress {
   position: fixed;
   top: 4px;
   left: 4px;
-  width: 99.5%;
+  width: calc(100% - 8px);
   height: 4px;
   border: transparent;
   border-radius: 100%;
